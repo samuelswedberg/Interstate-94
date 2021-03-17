@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1473824525808888616
 Transform:
   m_ObjectHideFlags: 0
@@ -43,7 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f126bfb5fdd5cf4bbd345e266f85a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles: []
+  obstacles:
+  - {fileID: 1377234079916268541, guid: 9ae3fc5c7fb217048af404e7767def23, type: 3}
+  - {fileID: 1377234079916268541, guid: ee8e92ca248fa274fbccb0f537d055be, type: 3}
+  - {fileID: 1377234079916268541, guid: 45808c60fe746124ca1ef02582c155ca, type: 3}
+  - {fileID: 1377234079916268541, guid: f67ca95a8a6d22a4d9297814a80fd36e, type: 3}
 --- !u!1 &809502214315840120
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +64,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1655630364051846636
 Transform:
   m_ObjectHideFlags: 0
@@ -87,7 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f126bfb5fdd5cf4bbd345e266f85a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles: []
+  obstacles:
+  - {fileID: 1377234079916268541, guid: 9ae3fc5c7fb217048af404e7767def23, type: 3}
+  - {fileID: 1377234079916268541, guid: ee8e92ca248fa274fbccb0f537d055be, type: 3}
+  - {fileID: 1377234079916268541, guid: 45808c60fe746124ca1ef02582c155ca, type: 3}
+  - {fileID: 1377234079916268541, guid: f67ca95a8a6d22a4d9297814a80fd36e, type: 3}
 --- !u!1 &4710957277566146675
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f126bfb5fdd5cf4bbd345e266f85a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles: []
+  obstacles:
+  - {fileID: 1377234079916268541, guid: 9ae3fc5c7fb217048af404e7767def23, type: 3}
+  - {fileID: 1377234079916268541, guid: ee8e92ca248fa274fbccb0f537d055be, type: 3}
+  - {fileID: 1377234079916268541, guid: 45808c60fe746124ca1ef02582c155ca, type: 3}
+  - {fileID: 1377234079916268541, guid: f67ca95a8a6d22a4d9297814a80fd36e, type: 3}
 --- !u!1 &8237007532769433594
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4427676194678612268}
   m_Layer: 0
-  m_Name: SpawnPattern1
+  m_Name: 3S-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

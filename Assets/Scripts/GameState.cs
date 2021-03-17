@@ -14,6 +14,9 @@ public class GameState : MonoBehaviour
     InGame InGame;
     EndGame EndGame;
 
+    public bool timerGoing;
+    public float elapsedTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,37 @@ public class GameState : MonoBehaviour
         StartGame = FindObjectOfType<StartGame>();
         InGame = FindObjectOfType<InGame>();
         EndGame = FindObjectOfType<EndGame>();
+        timerGoing = false;
         Intro();
+    }
+
+    void Update()
+    {
+        if ( elapsedTime > 1000f && sp.stage == 1)
+        {
+            sp.stage = 2;
+            InGame.transmitStage2();
+
+        }
+
+        if ( elapsedTime > 2000f && sp.stage == 2)
+        {
+            sp.stage = 3;
+            InGame.transmitStage3();
+            
+        }
+
+        if ( elapsedTime > 3000f && sp.stage == 3)
+        {
+            sp.stage = 4;
+            InGame.transmitStage4();
+            
+        }
+
+        if ( elapsedTime > 4000f && sp.stage == 3)
+        {
+            InGame.transmitFinish();
+        }
     }
 
     void Intro()
@@ -42,6 +75,7 @@ public class GameState : MonoBehaviour
         objKillZone.EnableKillZone();
         playerController.playerMovement = true;
         sp.spawning = true;
+        StartTimer();
     }
 
     public void EndingGame()
@@ -49,5 +83,27 @@ public class GameState : MonoBehaviour
         Debug.Log("Game Over");
         sp.spawning = false;
         EndGame.EndScreen();
+    }
+
+    void StartTimer()
+    {
+        timerGoing = true;
+        StartCoroutine(UpdateTimer());
+    }
+
+    void EndTimer()
+    {
+        timerGoing = false;
+    }
+
+    IEnumerator UpdateTimer()
+    {
+        while (timerGoing)
+        {
+            elapsedTime += Time.deltaTime * 26.8f;
+            //Debug.Log(elapsedTime);
+
+            yield return null;
+        }
     }
 }
