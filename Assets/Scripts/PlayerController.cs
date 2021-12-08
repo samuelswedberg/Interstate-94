@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Crashed");
         playerMovement = false;
+        GameState.EndTimer();
         transform.Translate(Vector2.left * ob.OBspeed * Time.deltaTime);
     }
 

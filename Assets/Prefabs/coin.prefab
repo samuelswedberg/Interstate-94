@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 5399953661043825942}
   - component: {fileID: 7973105746538426420}
   - component: {fileID: 7926973024175607408}
-  - component: {fileID: 3631095968316208040}
   - component: {fileID: -1891190913863203378}
   - component: {fileID: -4387331238848322041}
   m_Layer: 0
-  m_Name: corolla_blue
+  m_Name: coin
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 2932997464235154061, guid: 5cad53aeb9c218f438fa367a805af3aa,
+  m_Sprite: {fileID: 7298986135995889473, guid: 5cad53aeb9c218f438fa367a805af3aa,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,40 +102,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.375, y: 1.3125}
+    oldSize: {x: 2.6875, y: 1.5}
     newSize: {x: 2.375, y: 1.3125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1}
-  m_EdgeRadius: 0
---- !u!61 &3631095968316208040
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377234079916268541}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.375, y: 1.3125}
-    newSize: {x: 2.375, y: 1.3125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 1.8}
   m_EdgeRadius: 0
 --- !u!114 &-1891190913863203378
 MonoBehaviour:
@@ -151,8 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRamp: 0
-  isDangerous: 1
-  isCoin: 0
+  isDangerous: 0
+  isCoin: 1
 --- !u!114 &-4387331238848322041
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,4 +26,9 @@ public class EndGame : MonoBehaviour
     {
         SceneManager.LoadScene("Highway");
     }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 }

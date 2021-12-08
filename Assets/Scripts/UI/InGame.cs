@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InGame : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class InGame : MonoBehaviour
     public GameObject Stage4;
     public GameObject Finish;
     Spawner Spawner;
+    GameState GameState;
 
     void Start()
     {
         Spawner = FindObjectOfType<Spawner>();
+        GameState = FindObjectOfType<GameState>();
     }
 
     public void transmitStage2()
@@ -64,9 +67,8 @@ public class InGame : MonoBehaviour
     public IEnumerator doFinish()
     {
         Finish.SetActive(true);
-        Spawner.spawning = false;
+        GameState.WonGame();
         yield return new WaitForSeconds(3);
-        Finish.SetActive(false);
-        Spawner.spawning = true;
+        SceneManager.LoadScene("Main Menu");  
     }
 }

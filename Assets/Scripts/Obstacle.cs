@@ -5,20 +5,24 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public bool isRamp;
+    public bool isDangerous;
+    public bool isCoin;
 
     MovementController mc;
     PlayerController pc;
     BoundBox boundBox;
+    CoinSystem CoinSystem;
 
     void Start()
     {
         mc = GetComponent<MovementController>();
         pc = FindObjectOfType<PlayerController>();
         boundBox = FindObjectOfType<BoundBox>();
+        CoinSystem = FindObjectOfType<CoinSystem>();
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if (isRamp == false && other.CompareTag("Player"))
+        if (isDangerous == true && other.CompareTag("Player"))
         {
             Debug.Log("Damage");
             pc.isCrashed = true;
@@ -29,6 +33,12 @@ public class Obstacle : MonoBehaviour
         {
             Debug.Log("Called Ramped()");
             pc.Ramped();
+        }
+
+        if (isCoin == true && other.CompareTag("Player"))
+        {
+            Debug.Log("Coin collected");
+            CoinSystem.coins = CoinSystem.coins + 1;
         }
 
         if (other.CompareTag("ObjKillZone"))

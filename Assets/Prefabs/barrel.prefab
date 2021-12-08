@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRamp: 0
+  isDangerous: 1
+  isCoin: 0
 --- !u!114 &-4387331238848322041
 MonoBehaviour:
   m_ObjectHideFlags: 0

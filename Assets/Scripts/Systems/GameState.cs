@@ -14,6 +14,12 @@ public class GameState : MonoBehaviour
     InGame InGame;
     EndGame EndGame;
 
+    DebugMenu DebugMenu;
+
+    DataManager DataManager;
+    public GameObject debugMenu;
+    public bool dm_open;
+
     public bool timerGoing;
     public float elapsedTime;
 
@@ -28,37 +34,17 @@ public class GameState : MonoBehaviour
         StartGame = FindObjectOfType<StartGame>();
         InGame = FindObjectOfType<InGame>();
         EndGame = FindObjectOfType<EndGame>();
+        DebugMenu = FindObjectOfType<DebugMenu>();
+        DataManager = FindObjectOfType<DataManager>();
         timerGoing = false;
+        dm_open = false;
         Intro();
     }
 
     void Update()
     {
-        if ( elapsedTime > 1000f && sp.stage == 1)
-        {
-            sp.stage = 2;
-            InGame.transmitStage2();
-
-        }
-
-        if ( elapsedTime > 2000f && sp.stage == 2)
-        {
-            sp.stage = 3;
-            InGame.transmitStage3();
-            
-        }
-
-        if ( elapsedTime > 3000f && sp.stage == 3)
-        {
-            sp.stage = 4;
-            InGame.transmitStage4();
-            
-        }
-
-        if ( elapsedTime > 4000f && sp.stage == 3)
-        {
-            InGame.transmitFinish();
-        }
+        Timer();
+        DebugMenuVisibility();
     }
 
     void Intro()
@@ -83,17 +69,72 @@ public class GameState : MonoBehaviour
         Debug.Log("Game Over");
         sp.spawning = false;
         EndGame.EndScreen();
+        DataManager.SaveCharacterInfo();
     }
 
-    void StartTimer()
+    public void WonGame()
+    {
+        Debug.Log("You win");
+        sp.spawning = false;
+        playerController.playerMovement = false;
+    }
+
+    public void StartTimer()
     {
         timerGoing = true;
         StartCoroutine(UpdateTimer());
     }
 
-    void EndTimer()
+    public void EndTimer()
     {
         timerGoing = false;
+    }
+
+    void DebugMenuVisibility()
+    {
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            if(dm_open == false)
+            {
+                debugMenu.SetActive(true);
+                dm_open = true;
+            }
+            else
+            {
+                debugMenu.SetActive(false);
+                dm_open = false;
+            }
+            
+        }
+    }
+
+    void Timer()
+    {
+        if ( elapsedTime > 1000f && sp.stage == 1)
+        {
+            sp.stage = 2;
+            InGame.transmitStage2();
+
+        }
+
+        if ( elapsedTime > 2000f && sp.stage == 2)
+        {
+            sp.stage = 3;
+            InGame.transmitStage3();
+            
+        }
+
+        if ( elapsedTime > 3000f && sp.stage == 3)
+        {
+            sp.stage = 4;
+            InGame.transmitStage4();
+            
+        }
+
+        if ( elapsedTime > 4000f && sp.stage == 4)
+        {
+            InGame.transmitFinish();
+        }
     }
 
     IEnumerator UpdateTimer()
