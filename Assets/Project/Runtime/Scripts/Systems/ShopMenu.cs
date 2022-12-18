@@ -5,15 +5,15 @@ using TMPro;
 
 public class ShopMenu : MonoBehaviour
 {
-    public GameObject mainMenu, shopMenu;
+    public GameObject mainMenu, shopMenu, vehicles, vm1, vm2, vm3;
 
     Cosmetics Cosmetics;
     CoinSystem CoinSystem;
     DataManager DataManager;
     public TMP_Text coinText, responseText, v1, v2, v3;
 
-    public string copcarUnlocked;
-
+    public string copcarUnlocked, tankerUnlocked, corollaUnlocked;
+    int cost1 = 10, cost2 = 15, cost3 = 20;
     void Start()
     {
         CoinSystem = FindObjectOfType<CoinSystem>();
@@ -25,27 +25,56 @@ public class ShopMenu : MonoBehaviour
 
     private void VerifyUnlocks()
     {
-        if(copcarUnlocked == "true")
+        if(corollaUnlocked == "true")
+        {
             v1.SetText("Unlocked");
+            vm1.SetActive(true);
+        }
         else
-            v1.SetText("1 coin");
+            v1.SetText(cost1 + " cones");
+
+        if(tankerUnlocked == "true")
+        {
+            v2.SetText("Unlocked");
+            vm2.SetActive(true);
+        }
+        else
+            v2.SetText(cost2 + " cones");
+            
+        if(copcarUnlocked == "true")
+        {
+            v3.SetText("Unlocked");
+            vm3.SetActive(true);
+        }
+        else
+            v3.SetText(cost3 + " cones");        
 
     }
     public void OpenShop()
     {
         mainMenu.SetActive(false);
         shopMenu.SetActive(true);
+        vehicles.SetActive(false);
     }
 
-    public void CloseShop()
+    public void Close()
     {
         mainMenu.SetActive(true);
         shopMenu.SetActive(false);
+        vehicles.SetActive(false);
     }
+
+    public void OpenVehicles()
+    {
+        mainMenu.SetActive(false);
+        shopMenu.SetActive(false);
+        vehicles.SetActive(true);
+    }
+
 
     public void CoinAmount()
     {
-        coinText.SetText("Coins: " + CoinSystem.coins);
+        coinText.SetText("Cones: " + CoinSystem.coins);
     }
 
     public void DefaultVehicle()
@@ -54,26 +83,27 @@ public class ShopMenu : MonoBehaviour
     }
     public void Vehicle1()
     {
-        if(copcarUnlocked == "true")
+        
+        if(corollaUnlocked == "true")
         {
             responseText.SetText("You have already unlocked this vehicle");
             ClearResponse();
         }
-        else if(CoinSystem.coins >= 1)
+        else if(CoinSystem.coins >= cost1)
         {
-            CoinSystem.coins = CoinSystem.coins - 1;
+            CoinSystem.coins = CoinSystem.coins - cost1;
             CoinAmount();
-            copcarUnlocked = "true";
+            corollaUnlocked = "true";
             v1.SetText("Unlocked");
-            Cosmetics.setVehicle("delorean"); // .setVehicle saves 
+            Cosmetics.setVehicle("corolla"); // .setVehicle saves 
 
         }
         else
         {
             if(CoinSystem.coins == 1)
-                responseText.SetText("You need 1 coin. You have " + CoinSystem.coins + " coin.");
+                responseText.SetText("You need " + cost1 + " cones. You have " + CoinSystem.coins + " cone.");
             else
-                responseText.SetText("You need 1 coin. You have " + CoinSystem.coins + " coins.");
+                responseText.SetText("You need " + cost1 + " cones. You have " + CoinSystem.coins + " cones.");
 
             ClearResponse();
         }
@@ -82,18 +112,26 @@ public class ShopMenu : MonoBehaviour
 
     public void Vehicle2()
     {
-        if(CoinSystem.coins >= 2)
+        if(tankerUnlocked == "true")
         {
-            CoinSystem.coins = CoinSystem.coins - 2;
+            responseText.SetText("You have already unlocked this vehicle");
+            ClearResponse();
+        }
+        else if(CoinSystem.coins >= cost2)
+        {
+            CoinSystem.coins = CoinSystem.coins - cost2;
             CoinAmount();
-            Cosmetics.setVehicle("copcar"); // .setVehicle saves 
+            tankerUnlocked = "true";
+            v2.SetText("Unlocked");
+            Cosmetics.setVehicle("tanker"); // .setVehicle saves 
+
         }
         else
         {
             if(CoinSystem.coins == 1)
-                responseText.SetText("You need 2 coins. You have " + CoinSystem.coins + " coin.");
+                responseText.SetText("You need " + cost2 + " cones. You have " + CoinSystem.coins + " coin.");
             else
-                responseText.SetText("You need 2 coins. You have " + CoinSystem.coins + " coins.");
+                responseText.SetText("You need " + cost2 + " cones. You have " + CoinSystem.coins + " cones.");
 
             StartCoroutine(ClearResponse());
         }
@@ -101,18 +139,25 @@ public class ShopMenu : MonoBehaviour
 
     public void Vehicle3()
     {
-        if(CoinSystem.coins >= 3)
+        if(copcarUnlocked == "true")
         {
-            CoinSystem.coins = CoinSystem.coins - 3;
+            responseText.SetText("You have already unlocked this vehicle");
+            ClearResponse();
+        }
+        else if(CoinSystem.coins >= cost3)
+        {
+            CoinSystem.coins = CoinSystem.coins - cost3;
             CoinAmount();
-            Cosmetics.setVehicle("corolla"); // .setVehicle saves 
+            copcarUnlocked = "true";
+            v3.SetText("Unlocked");
+            Cosmetics.setVehicle("copcar"); // .setVehicle saves 
         }
         else
         {
             if(CoinSystem.coins == 1)
-                responseText.SetText("You need 3 coins. You have " + CoinSystem.coins + " coin.");
+                responseText.SetText("You need " + cost3 + " cone. You have " + CoinSystem.coins + " cone.");
             else
-                responseText.SetText("You need 3 coins. You have " + CoinSystem.coins + " coins.");
+                responseText.SetText("You need " + cost3 + " cones. You have " + CoinSystem.coins + " cones.");
             
             StartCoroutine(ClearResponse());
         }
@@ -122,5 +167,20 @@ public class ShopMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         responseText.SetText("");
+    }
+
+    public void selectV1()
+    {
+        Cosmetics.setVehicle("corolla");
+    }
+
+    public void selectV2()
+    {
+        Cosmetics.setVehicle("tanker");
+    }
+
+    public void selectV3()
+    {
+        Cosmetics.setVehicle("copcar");
     }
 }

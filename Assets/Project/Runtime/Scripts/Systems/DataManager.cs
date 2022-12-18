@@ -21,7 +21,9 @@ public class DataManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Coins_Key", CoinSystem.coins);
         PlayerPrefs.SetString("Vehicle_Key", Cosmetics.vehicle);
-        PlayerPrefs.SetString("Delorean_Unlocked", ShopMenu.copcarUnlocked);
+        PlayerPrefs.SetString("Corolla_Unlocked", ShopMenu.corollaUnlocked);
+        PlayerPrefs.SetString("Tanker_Unlocked", ShopMenu.tankerUnlocked);
+        PlayerPrefs.SetString("Copcar_Unlocked", ShopMenu.copcarUnlocked);
         Debug.Log("Character saved.");
     }
 
@@ -29,9 +31,11 @@ public class DataManager : MonoBehaviour
     {
         CoinSystem.coins = PlayerPrefs.GetInt("Coins_Key");
         Cosmetics.vehicle = PlayerPrefs.GetString("Vehicle_Key");
-        ShopMenu.copcarUnlocked = PlayerPrefs.GetString("Delorean_Unlocked");
+        ShopMenu.corollaUnlocked = PlayerPrefs.GetString("Corolla_Unlocked");
+        ShopMenu.tankerUnlocked = PlayerPrefs.GetString("Tanker_Unlocked");
+        ShopMenu.copcarUnlocked = PlayerPrefs.GetString("Copcar_Unlocked");
         Debug.Log("Character loaded. Coins: " + CoinSystem.coins + ". Level: " + "n/a" + ". Vehicle: " + Cosmetics.vehicle + ".");
-        Debug.Log("Unlocks> Copcar: " + ShopMenu.copcarUnlocked);
+        Debug.Log("Unlocks> Corolla: " + ShopMenu.corollaUnlocked + ". Tanker: " + ShopMenu.tankerUnlocked + ". Copcar: " + ShopMenu.copcarUnlocked);
     }
 
     public void DeleteCharacterInfo()

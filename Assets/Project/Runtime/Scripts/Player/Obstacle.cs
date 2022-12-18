@@ -35,7 +35,7 @@ public class Obstacle : MonoBehaviour
 
         if (isCoin == true && other.CompareTag("Player"))
         {
-            Debug.Log("Coin collected");
+            Debug.Log("Cone collected");
             CoinSystem.coins = CoinSystem.coins + 1;
         }
 

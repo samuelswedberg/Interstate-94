@@ -344,7 +344,7 @@ TextureImporter:
         width: 44
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -365,7 +365,7 @@ TextureImporter:
         width: 38
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -373,6 +373,27 @@ TextureImporter:
       bones: []
       spriteID: 936442083866bc94182cabb0ffacbdde
       internalID: -1712522212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cone
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 208
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94909a9de9051540b352d8ea1b955c3
+      internalID: 1897547721
       vertices: []
       indices: 
       edges: []
@@ -395,6 +416,7 @@ TextureImporter:
       copcar_3: 39894218
       corolla_blue: 2932997464235154061
       copcar_1: 7298986135995889473
+      cone: 1897547721
       copcar_4: -771368169
       ramptruck: 1436259939
       ramp: 3109109611259854410
