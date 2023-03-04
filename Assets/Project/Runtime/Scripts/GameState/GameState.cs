@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameState : MonoBehaviour
 {
@@ -18,12 +19,14 @@ public class GameState : MonoBehaviour
 
     DataManager DataManager;
     public GameObject debugMenu;
+    public ParticleSystem explosion;
     public bool dm_open;
 
     public bool timerGoing;
     public float elapsedTime;
+    public TMP_Text tip;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         boundBox = FindObjectOfType<BoundBox>();
@@ -41,6 +44,14 @@ public class GameState : MonoBehaviour
         Intro();
     }
 
+    public void Tips()
+    {
+        string[] Tips = {"TIP: Run over cones to collect them", "TIP: Use the ramps to jump over vehicles", "TIP: Don't run into other vehicles"};
+        int rand = Random.Range(0, 2);
+        string rtnString = Tips[rand];
+        tip.SetText(rtnString);
+    }
+    
     void Update()
     {
         Timer();
@@ -68,13 +79,14 @@ public class GameState : MonoBehaviour
     {
         Debug.Log("Game Over");
         sp.spawning = false;
+        explosion.Play();
         EndGame.EndScreen();
         DataManager.SaveCharacterInfo();
     }
 
     public void WonGame()
     {
-        Debug.Log("You win");
+        Debug.Log("You win!");
         sp.spawning = false;
         playerController.playerMovement = false;
     }

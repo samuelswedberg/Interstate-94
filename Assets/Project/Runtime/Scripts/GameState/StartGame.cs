@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class StartGame : MonoBehaviour
 {
 
-    public GameObject Ready;
-    public GameObject Set;
-    public GameObject Go;
+    public GameObject Ready, Set, Go, Tip;
 
     GameState GameState;
-
+    CoinSystem CoinSystem;
     StartCop StartCop;
+
 
     void Start()
     {
         GameState = FindObjectOfType<GameState>();
         StartCop = FindObjectOfType<StartCop>();
+        CoinSystem = FindObjectOfType<CoinSystem>();
+        CoinSystem.coincounter = 0;
+        GameState.Tips();
     }
+
 
     public void StartCountdown()
     {
@@ -27,6 +31,7 @@ public class StartGame : MonoBehaviour
     IEnumerator Countdown()
     {
         Ready.SetActive(true);
+        Tip.SetActive(true);
         yield return new WaitForSeconds(2);
         Ready.SetActive(false);
 
@@ -41,6 +46,7 @@ public class StartGame : MonoBehaviour
         Go.SetActive(true);
         yield return new WaitForSeconds(2);
         Go.SetActive(false);
+        Tip.SetActive(false);
         
     }
 }

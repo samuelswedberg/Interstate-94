@@ -6,20 +6,17 @@ using UnityEngine.SceneManagement;
 public class EndGame : MonoBehaviour
 {
     public GameObject GameOverScreen;
+    CoinSystem CoinSystem;
 
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        CoinSystem = FindObjectOfType<CoinSystem>();
     }
 
     public void EndScreen()
     {
         GameOverScreen.SetActive(true);
+        CoinSystem.coins += CoinSystem.coincounter;
     }
     
     public void Restart()

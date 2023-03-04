@@ -128,6 +128,8 @@ MonoBehaviour:
   isRamp: 0
   isDangerous: 0
   isCoin: 1
+  pc: {fileID: 0}
+  explode: {fileID: 0}
 --- !u!114 &-4387331238848322041
 MonoBehaviour:
   m_ObjectHideFlags: 0

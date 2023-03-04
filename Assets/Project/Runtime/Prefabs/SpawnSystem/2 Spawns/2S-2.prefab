@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4427676194678612268}
   m_RootOrder: 2
@@ -43,7 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f126bfb5fdd5cf4bbd345e266f85a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles: []
+  obstacles:
+  - {fileID: 1377234079916268541, guid: 9ae3fc5c7fb217048af404e7767def23, type: 3}
+  - {fileID: 1377234079916268541, guid: ee8e92ca248fa274fbccb0f537d055be, type: 3}
+  - {fileID: 1377234079916268541, guid: ada75ecb50b702541b5761ad3e844d9b, type: 3}
+  - {fileID: 1377234079916268541, guid: ab68979d02a4bc7429069f3f0022ce58, type: 3}
+  - {fileID: 1377234079916268541, guid: 52315bf12b4a4d84c9112ac03febed8b, type: 3}
 --- !u!1 &809502214315840120
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,6 +77,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4427676194678612268}
   m_RootOrder: 3
@@ -90,8 +97,9 @@ MonoBehaviour:
   obstacles:
   - {fileID: 1377234079916268541, guid: 9ae3fc5c7fb217048af404e7767def23, type: 3}
   - {fileID: 1377234079916268541, guid: ee8e92ca248fa274fbccb0f537d055be, type: 3}
-  - {fileID: 1377234079916268541, guid: 45808c60fe746124ca1ef02582c155ca, type: 3}
-  - {fileID: 1377234079916268541, guid: f67ca95a8a6d22a4d9297814a80fd36e, type: 3}
+  - {fileID: 1377234079916268541, guid: ada75ecb50b702541b5761ad3e844d9b, type: 3}
+  - {fileID: 1377234079916268541, guid: ab68979d02a4bc7429069f3f0022ce58, type: 3}
+  - {fileID: 1377234079916268541, guid: 52315bf12b4a4d84c9112ac03febed8b, type: 3}
 --- !u!1 &4710957277566146675
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +127,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4427676194678612268}
   m_RootOrder: 1
@@ -138,8 +147,9 @@ MonoBehaviour:
   obstacles:
   - {fileID: 1377234079916268541, guid: 9ae3fc5c7fb217048af404e7767def23, type: 3}
   - {fileID: 1377234079916268541, guid: ee8e92ca248fa274fbccb0f537d055be, type: 3}
-  - {fileID: 1377234079916268541, guid: 45808c60fe746124ca1ef02582c155ca, type: 3}
-  - {fileID: 1377234079916268541, guid: f67ca95a8a6d22a4d9297814a80fd36e, type: 3}
+  - {fileID: 1377234079916268541, guid: ada75ecb50b702541b5761ad3e844d9b, type: 3}
+  - {fileID: 1377234079916268541, guid: ab68979d02a4bc7429069f3f0022ce58, type: 3}
+  - {fileID: 1377234079916268541, guid: 52315bf12b4a4d84c9112ac03febed8b, type: 3}
 --- !u!1 &8237007532769433594
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +176,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17, y: -1.9, z: -5.9652114}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3994274727256342024}
   - {fileID: 5907232799816775964}
@@ -201,6 +212,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4427676194678612268}
   m_RootOrder: 0

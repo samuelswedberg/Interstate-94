@@ -7,10 +7,10 @@ public class Obstacle : MonoBehaviour
     public bool isRamp, isDangerous, isCoin;
 
     MovementController mc;
-    PlayerController pc;
+    public PlayerController pc;
     BoundBox boundBox;
     CoinSystem CoinSystem;
-
+    public AudioSource explode;
     void Start()
     {
         mc = GetComponent<MovementController>();
@@ -24,6 +24,7 @@ public class Obstacle : MonoBehaviour
         {
             Debug.Log("Damage");
             pc.isCrashed = true;
+            explode.Play();
             boundBox.DisableBounds();
         }
 
@@ -36,7 +37,9 @@ public class Obstacle : MonoBehaviour
         if (isCoin == true && other.CompareTag("Player"))
         {
             Debug.Log("Cone collected");
-            CoinSystem.coins = CoinSystem.coins + 1;
+            pc.coinCollect = true;
+            Destroy(gameObject);
+            CoinSystem.coincounter += 1;
         }
 
         if (other.CompareTag("ObjKillZone"))

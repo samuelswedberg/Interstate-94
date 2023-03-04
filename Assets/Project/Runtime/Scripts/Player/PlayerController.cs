@@ -17,11 +17,15 @@ public class PlayerController : MonoBehaviour
     public BoxCollider2D boxCollider;
     public float jumpTime = .25f;
     public bool isRamping;
-    public bool isLanding;
+    public bool isLanding, coinCollect = false;
     BoundBox boundBox;
 
     GameState GameState;
     public bool isGameOver;
+
+    public AudioSource coin;
+
+
 
     void Start()
     {
@@ -48,6 +52,12 @@ public class PlayerController : MonoBehaviour
                 isLanding = false;
                 boundBox.EnableHorizontal();
             }
+
+        if(coinCollect == true)
+        {
+            coin.Play();
+            coinCollect = false;
+        }
     }
 
     void FixedUpdate()
@@ -86,7 +96,6 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
     }
-
     public void Crash()
     {
         Debug.Log("Crashed");
